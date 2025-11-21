@@ -1,0 +1,274 @@
+\documentclass[final]{beamer}
+
+% <<< packages
+
+% `size` and `orientation` are options for `beamerposter`.
+% `scale` can be used to make the fonts bigger, as required.
+\usetheme[size=a1,orientation=landscape, scale=1.0]{uvtposter}
+
+% load math packages
+\usepackage{amsmath}
+
+% load more packages
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+% for displaying code (using `minted` will probably give better results)
+\usepackage{listings}
+\usepackage{graphicx}
+
+
+
+% for qr code in header
+% \usepackage{qrcode}
+
+% >>>
+
+% <<< formatting
+
+% use numbers for footnotes inside columns
+% \renewcommand\thempfootnote{\arabic{mpfootnote}}
+
+% add custom logos
+% \headerlogoleft{\includegraphics[width=0.08\paperwidth]{assets/logo.png}}
+% \headerlogoright{\includegraphics[width=0.08\paperwidth]{assets/uvt-logo-fmi.png}}
+% \headerlogoright{\qrcode[height=0.06\paperwidth]{https://github.com/alexfikl/uvt-poster}}
+
+% remove logos
+\headerlogoleft{}
+% \headerlogoright{}
+
+
+% >>>
+
+% <<< commands
+
+% define some helpful commands
+\NewDocumentCommand \dx { O{x} } {\,\mathrm{d} #1}
+
+% >>>
+
+% <<< metadata
+
+\title{Video Over RTP Enhancements and Testing Methods}
+\author{Dr. Amiruzzaman \and Huy Nguyen \and Sebastian Tran}
+\institute[shortinst]{West Chester University of Pennsylvania}
+
+% add content to the footer
+
+\footerlocation{CSM Fall 2025 Student Poster Session}
+
+
+% >>>
+
+\begin{document}
+
+% NOTE: each frame will create a new page with a new poster, so you probably do
+% not want more of them in a single file.
+\begin{frame}[fragile]
+
+% NOTE: this uses a three column format because it is in landscape mode. If you
+% are using a portrait mode, two columns is probably better to allow for larger text
+\begin{columns}[t]
+
+\separatorcolumn
+
+\begin{column}{0.3\paperwidth}
+
+\begin{block}{Abstract}
+   RTP, or real time protocol, is designed for internet transmission with minimal latency. 
+   Applications that require near millisecond latency will implement RTP to achieve such goals. 
+   Common applications for RTP include real time video streams, online conferencing applications, and voice over IP. 
+   To enable additional enhancements and modifications, RTP allows for extensions to the header in order to transmit extra data with the video and audio streams. 
+   This study explores the feasibility of various modifications of this extension header and how this impacts data transfer performance.
+
+    \bigskip
+    First we attempt to implement sending and receiving Video QOS metrics inside of the RTP packet rather than through the RTP control stream. 
+    Second, we add a role based video streaming to ensure video is directed only to authorized users. 
+    In addition, we design a testing scheme to measure latency and other QOS metrics in order to compare base protocol designs against other modifications. 
+\end{block}
+
+\begin{block}{RTP Packet Header}
+    \begin{table}[h!]
+        \begin{tabular}{|>{\centering\arraybackslash}p{7mm}|*{32}{>{\centering\arraybackslash}p{3mm}|}}
+            \hline
+            {\small Bit} & {\tiny 0} & {\tiny 1} & {\tiny 2} & {\tiny 3} & {\tiny 4} & {\tiny 5} & {\tiny 6} & {\tiny 7} & {\tiny 8} & {\tiny 9} & {\tiny 10} & {\tiny 11} & {\tiny 12} & {\tiny 13} & {\tiny 14} & {\tiny 15} & {\tiny 16} & {\tiny 17} & {\tiny 18} & {\tiny 19} & {\tiny 20} & {\tiny 21} & {\tiny 22} & {\tiny 23} & {\tiny 24} & {\tiny 25} & {\tiny 26} & {\tiny 27} & {\tiny 28} & {\tiny 29} & {\tiny 30} & {\tiny 31} \\
+            \hline
+            {\small 0} & \multicolumn{2}{|c|}{\small V} & {\small P} & {\small X} & \multicolumn{4}{|c|}{\small CC} & {\small M} & \multicolumn{7}{|c|}{\small Payload Type} & \multicolumn{16}{|c|}{\small Sequence Number} \\
+            \hline
+            {\small 32} & \multicolumn{32}{|c|}{\small Timestamp} \\
+            \hline
+            {\small 64} & \multicolumn{32}{|c|}{\small SSRC identifier} \\
+            \hline
+            {\small 96} & \multicolumn{32}{|c|}{\small CSRC identifier(s)} \\
+            \hline
+            {\small ...} & \multicolumn{16}{|c|}{\small Profile-specific Extension Header Identifier} & \multicolumn{16}{|c|}{\small Extension Header Length}\\
+            \hline
+            {\small ... } & \multicolumn{32}{|c|}{\small Extension Data} \\
+            \hline        
+        \end{tabular}
+        \caption{RTP Packet Header Layout}
+    \end{table}
+
+    \bigskip
+    {\small \textbf{V (Version)}: Indicates the verision of the protocol\\}
+    \smallskip
+    {\small \textbf{P (Padding)}: Tells the reciever that padding is enabled.\\}
+    \smallskip
+    {\small \textbf{X (Extension)}: Tells the reciver that extension modifications to the header are enabled.\\}
+    \smallskip
+    {\small \textbf{CC (CSRC Count)}: Stores the number of CSRC identifiers\\}
+    \smallskip
+    {\small \textbf{M (Marker)}: Used to indicate to the reciver this is special packet\\}
+    \smallskip
+    {\small \textbf{Payload Type}: Indicates the type of data in the packet\\}
+    \smallskip
+    {\small \textbf{Sequence Number}: The packet number. Used to correct out of order transmission and detect packet loss\\}
+    \smallskip
+    {\small \textbf{Timestamp}: Used for synchronization of different streams\\}
+    \smallskip
+    {\small \textbf{SSRC identifier}: Determines who has sent the packet\\}
+    \smallskip
+    {\small \textbf{CSRC identifier(s)}: Lists who has contributed data to the packet\\}
+    \smallskip
+    {\small \textbf{Profile Specific Extension Header Identifier}: Extension specific headers\\}
+    \smallskip
+    {\small \textbf{Extension Header Length}: Length of the extension data, including header\\}
+    \smallskip
+    {\small \textbf{Extension Data}: Extra profile specifc data\\}
+
+\end{block}
+
+\begin{block}{Video and Audio Transmission Over RTP}
+    Generally, multiplexing video and audio RTP streams over the same session is not recommended.
+    If one stream changes protocols, it becomes impossible to determine which one had changed.
+    It also provides the ability to particpate in each seperatly. As a result, video and audio streams are sent seperately and require reconstruction. 
+
+    \bigskip
+
+    Streams may be sampled at different rates, and require synchronization. This is done via a common clock, typhically via NTP.
+    By combining the data from the NTP from both streams, a common mapping can be found for synchronization
+
+    
+\end{block}
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{0.3\paperwidth}
+\begin{block}{Testing Metrics}
+
+    To test the efficacy of RTP transmissions under different network conditions, we measure these network quality metrics.
+    Each has a unique effect on the quality of an RTP stream. To Eliminate overhead of analyzing results during the stream, 
+    data will instead be collected and logged to be analyzed later.
+
+    \begin{center}
+        \includegraphics[width=0.35\textwidth]{assets/Blank diagram.png}
+    \end{center}
+
+
+    \bigskip
+
+    \begin{alertblock}{Transmission Delay}
+        Transmission delay measures the time needed for the sender to push all bits onto the network. 
+        \[
+            t = \frac{L}{R}
+        \]
+        \smallskip
+
+        where L is size of packet in bits, and R is bandwidth, measured in bits per second\\
+
+        Transmission delay has a critical role in real time systems, as it propogrates itself as higher latency.
+    \end{alertblock}
+
+    \begin{alertblock}{IP Packet Delay Variation (IPDV)}
+        IPDV is the can be measured as the root mean square of packet variation samples. 
+        \bigskip
+
+        A sample, k, measures the average of the absolute difference in latency between a successive n packets. 
+        Where R\textsubscript{i} and S\textsubscript{i} are the arrival times and sending time of the packet respectively
+
+        \[
+            IPDV(k) = \frac{\sum_{i = n*(k-1)+2}^{k*n+1}|(R_i - R_{i-1}) - (S_i - S_{i-1})|}{n}
+        \]
+        \smallskip
+
+        Applying the absolute value, rather than squaring, makes the sample average resistant 
+        to a small number of outliers, which are largely unnoticeable to the user.
+
+        \bigskip
+        The root mean square of the samples can then be calculated as:
+
+        \[
+            IPDV_{RMS}(I) = \sqrt{\frac{\sum_{k = N*(I-1)+1}^{I*N} {IPDV^{2}(K)}}{N}}
+        \]
+        \smallskip
+
+        Root mean squares provides a measure of variation as a mangnitude, unlike a standard deviation, 
+        which measures variation as a distance from the mean.
+
+        \bigskip
+        IPDV is noticeable in congested networks. Real time apps compete with other network services for bandwidth. 
+        This manifests itself as high packet variation, resulting in a stream that buffers often and 
+        offers a lower quality of experience for the user.
+
+    \end{alertblock}
+
+    \begin{alertblock}{Packet Loss}
+        Packet loss is the percetage of packets that are successfully received by a client
+
+        \[
+            PL = \frac{\text{Packets Sent} - \text{Packets Received}}{\text{Packets Sent}} * 100\ \%
+        \]
+        \bigskip
+
+        High packet loss causes RTP streams to be choppy and unresponsive. 
+        Poor network conditions and failed routing are the main causes of packet loss
+        
+    \end{alertblock}
+\end{block}
+
+
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{0.3\paperwidth}
+
+\begin{block}{Sessions}
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{assets/clients.png}
+    \end{center}
+\end{block}
+
+
+\begin{block}{Extensions}
+
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{assets/rtp-rtcp.png}
+    \end{center}
+
+    In a traditional RTP setup, data and QoS tranmssions are seperated into different transmissions on seperate ports
+
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{assets/rtp-extension.png}
+    \end{center}
+
+    With the extension header, it is possible to transmit both types of data in the header. 
+    This adds complexity to RTP in encoding and decoding, but has the benefit of reducing the overhead
+    when seperate protocols are used.    
+
+\end{block}
+
+\begin{alertblock}{References}
+    \nocite{*}
+    \bibliographystyle{plain}
+    \bibliography{template}
+\end{alertblock}
+
+\end{column}
+\separatorcolumn
+\end{columns}
+\end{frame}
+
+\end{document}
