@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  21 NOV 2025 09:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  29 NOV 2025 18:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -919,21 +919,21 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5.96397> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 64.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <4.26> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 64.
-<assets/logo.jpg, id=13, 396.48125pt x 643.40375pt>
-File: assets/logo.jpg Graphic file (type jpg)
-<use assets/logo.jpg>
-Package pdftex.def Info: assets/logo.jpg  used on input line 64.
-(pdftex.def)             Requested size: 95.699pt x 155.29381pt.
-File: assets/logo.jpg Graphic file (type jpg)
-<use assets/logo.jpg>
-Package pdftex.def Info: assets/logo.jpg  used on input line 69.
-(pdftex.def)             Requested size: 95.699pt x 155.29381pt.
+<assets/West_Chester_University_logo.png, id=13, 794.97pt x 383.4325pt>
+File: assets/West_Chester_University_logo.png Graphic file (type png)
+<use assets/West_Chester_University_logo.png>
+Package pdftex.def Info: assets/West_Chester_University_logo.png  used on input line 64.
+(pdftex.def)             Requested size: 215.35016pt x 103.8675pt.
+File: assets/West_Chester_University_logo.png Graphic file (type png)
+<use assets/West_Chester_University_logo.png>
+Package pdftex.def Info: assets/West_Chester_University_logo.png  used on input line 69.
+(pdftex.def)             Requested size: 215.35016pt x 103.8675pt.
 \openout4 = `template.vrb'.
 
-File: assets/logo.jpg Graphic file (type jpg)
-<use assets/logo.jpg>
-Package pdftex.def Info: assets/logo.jpg  used on input line 272.
-(pdftex.def)             Requested size: 95.699pt x 155.29381pt.
+File: assets/West_Chester_University_logo.png Graphic file (type png)
+<use assets/West_Chester_University_logo.png>
+Package pdftex.def Info: assets/West_Chester_University_logo.png  used on input line 332.
+(pdftex.def)             Requested size: 215.35016pt x 103.8675pt.
  (./template.vrb
 LaTeX Font Info:    Calculating math sizes for size <17.66> on input line 10.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <17.66> not available
@@ -1068,53 +1068,43 @@ Overfull \hbox (3.7342pt too wide) in paragraph at lines 29--29
  []
 
 
-Overfull \hbox (13.50233pt too wide) in paragraph at lines 25--42
- [] 
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 46--71
 
  []
 
-<assets/Blank diagram.png, id=14, 622.325pt x 542.025pt>
+<assets/Blank diagram.png, id=15, 622.325pt x 542.025pt>
 File: assets/Blank diagram.png Graphic file (type png)
 <use assets/Blank diagram.png>
-Package pdftex.def Info: assets/Blank diagram.png  used on input line 98.
-(pdftex.def)             Requested size: 241.21033pt x 210.08214pt.
+Package pdftex.def Info: assets/Blank diagram.png  used on input line 114.
+(pdftex.def)             Requested size: 257.2943pt x 224.09258pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
-<assets/clients.png, id=16, 942.52126pt x 362.35374pt>
-File: assets/clients.png Graphic file (type png)
-<use assets/clients.png>
-Package pdftex.def Info: assets/clients.png  used on input line 172.
-(pdftex.def)             Requested size: 344.58018pt x 132.47641pt.
-<assets/rtp-rtcp.png, id=17, 1107.13625pt x 268.00125pt>
+<assets/rtp-rtcp.png, id=16, 1107.13625pt x 268.00125pt>
 File: assets/rtp-rtcp.png Graphic file (type png)
 <use assets/rtp-rtcp.png>
-Package pdftex.def Info: assets/rtp-rtcp.png  used on input line 180.
-(pdftex.def)             Requested size: 344.58018pt x 83.41075pt.
-<assets/rtp-extension.png, id=18, 1107.13625pt x 268.00125pt>
+Package pdftex.def Info: assets/rtp-rtcp.png  used on input line 191.
+(pdftex.def)             Requested size: 367.55687pt x 88.97229pt.
+<assets/rtp-extension.png, id=17, 1107.13625pt x 268.00125pt>
 File: assets/rtp-extension.png Graphic file (type png)
 <use assets/rtp-extension.png>
-Package pdftex.def Info: assets/rtp-extension.png  used on input line 186.
-(pdftex.def)             Requested size: 344.58018pt x 83.41075pt.
+Package pdftex.def Info: assets/rtp-extension.png  used on input line 197.
+(pdftex.def)             Requested size: 367.55687pt x 88.97229pt.
 (./template.bbl))
-Overfull \vbox (18.2094pt too high) detected at line 272
+Overfull \vbox (20.01501pt too high) detected at line 332
  []
 
 
 
-File: assets/logo.jpg Graphic file (type jpg)
-<use assets/logo.jpg>
-Package pdftex.def Info: assets/logo.jpg  used on input line 272.
-(pdftex.def)             Requested size: 95.699pt x 155.29381pt.
+File: assets/West_Chester_University_logo.png Graphic file (type png)
+<use assets/West_Chester_University_logo.png>
+Package pdftex.def Info: assets/West_Chester_University_logo.png  used on input line 332.
+(pdftex.def)             Requested size: 215.35016pt x 103.8675pt.
 [1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
- <./assets/logo.jpg> <./assets/Blank diagram.png> <./assets/clients.png> <./assets/rtp-rtcp.png> <./assets/rtp-extension.png>]
+ <./assets/West_Chester_University_logo.png> <./assets/Blank diagram.png> <./assets/rtp-rtcp.png> <./assets/rtp-extension.png>]
 \tf@nav=\write6
 \openout6 = `template.nav'.
 
@@ -1133,18 +1123,18 @@ Package rerunfilecheck Info: File `template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 28837 strings out of 473190
- 555788 string characters out of 5715801
- 1081323 words of memory out of 5000000
- 51470 multiletter control sequences out of 15000+600000
- 620341 words of font info for 108 fonts, out of 8000000 for 9000
+ 28849 strings out of 473190
+ 556263 string characters out of 5715801
+ 1097437 words of memory out of 5000000
+ 51477 multiletter control sequences out of 15000+600000
+ 627554 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,32n,123p,556b,1453s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on template.pdf (1 page, 818303 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on template.pdf (1 page, 242419 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 80 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
+ 8 named destinations out of 1000 (max. 500000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

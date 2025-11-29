@@ -5,7 +5,7 @@
 
 \separatorcolumn
 
-\begin{column}{0.3\paperwidth}
+\begin{column}{0.32\paperwidth}
 
 \begin{block}{Abstract}
    RTP, or real time protocol, is designed for internet transmission with minimal latency.
@@ -43,15 +43,15 @@
     \end{table}
 
     \bigskip
-    {\small \textbf{V (Version)}: Indicates the verision of the protocol\\}
+    {\small \textbf{V (Version)}: Indicates the version of the protocol\\}
     \smallskip
-    {\small \textbf{P (Padding)}: Tells the reciever that padding is enabled.\\}
+    {\small \textbf{P (Padding)}: Tells the receiver that padding is enabled.\\}
     \smallskip
-    {\small \textbf{X (Extension)}: Tells the reciver that extension modifications to the header are enabled.\\}
+    {\small \textbf{X (Extension)}: Tells the receiver that extension modifications to the header are enabled.\\}
     \smallskip
     {\small \textbf{CC (CSRC Count)}: Stores the number of CSRC identifiers\\}
     \smallskip
-    {\small \textbf{M (Marker)}: Used to indicate to the reciver this is special packet\\}
+    {\small \textbf{M (Marker)}: Used to indicate to the receiver this is special packet\\}
     \smallskip
     {\small \textbf{Payload Type}: Indicates the type of data in the packet\\}
     \smallskip
@@ -67,19 +67,35 @@
     \smallskip
     {\small \textbf{Extension Header Length}: Length of the extension data, including header\\}
     \smallskip
-    {\small \textbf{Extension Data}: Extra profile specifc data\\}
+    {\small \textbf{Extension Data}: Extra profile specific data\\}
 
 \end{block}
 
-\begin{block}{Video and Audio Transmission Over RTP}
+\begin{block}{Traditional Video and Audio Synchronization Over RTP}
     Generally, multiplexing video and audio RTP streams over the same session is not recommended.
-    If one stream changes protocols, it becomes impossible to determine which one had changed.
-    It also provides the ability to particpate in each seperatly. As a result, video and audio streams are sent seperately and require reconstruction.
+    Therefore, audio and video streams are separated and sent as different sessions. Streams may also be sampled at different rates, which requires synchronization.
+    This is done via occasionally announcing the common world clock time $T_{S_{SR}}$ with the corresponding RTP time stamp ${M_{SR}}$.
 
     \bigskip
+    The time $T_S$ an RTP packet was created can then be estimated as:
 
-    Streams may be sampled at different rates, and require synchronization. This is done via a common clock, typhically via NTP.
-    By combining the data from the NTP from both streams, a common mapping can be found for synchronization
+    \[
+        T_S = \frac{T_{S_{SR}} + (M - M_{SR})}{R}
+    \]
+
+    Where $R$ is the sampling frequency of the media form in hertz. A delay $D$ between an audio and video stream is then simply:
+
+    \[
+        D = D_{\text{audio}} - D_{\text{video}}
+    \]
+
+    For the stream that is ahead, a synchronization delay is added to match the delay of the other stream.
+    The offset, measured in media timestamp units, shifts playback for that amount,
+    and the receiver will make these packets reside in the buffer to compensate for the delay.
+
+    \[
+        \text{offset} = D * R
+    \]
 
 
 \end{block}
@@ -87,11 +103,11 @@
 
 \separatorcolumn
 
-\begin{column}{0.3\paperwidth}
+\begin{column}{0.32\paperwidth}
 \begin{block}{Testing Metrics}
 
     To test the efficacy of RTP transmissions under different network conditions, we measure these network quality metrics.
-    Each has a unique effect on the quality of an RTP stream. To Eliminate overhead of analyzing results during the stream,
+    Each has a unique effect on the quality of an RTP stream. To eliminate overhead of analyzing results during the stream,
     data will instead be collected and logged to be analyzed later.
 
     \begin{center}
@@ -136,7 +152,7 @@
         \]
         \smallskip
 
-        Root mean squares provides a measure of variation as a mangnitude, unlike a standard deviation,
+        Root mean squares provides a measure of variation as a magnitude, unlike a standard deviation,
         which measures variation as a distance from the mean.
 
         \bigskip
@@ -147,7 +163,7 @@
     \end{alertblock}
 
     \begin{alertblock}{Packet Loss}
-        Packet loss is the percetage of packets that are successfully received by a client
+        Packet loss is the percentage of packets that are successfully received by a client
 
         \[
             PL = \frac{\text{Packets Sent} - \text{Packets Received}}{\text{Packets Sent}} * 100\ \%
@@ -165,13 +181,8 @@
 
 \separatorcolumn
 
-\begin{column}{0.3\paperwidth}
+\begin{column}{0.32\paperwidth}
 
-\begin{block}{Sessions}
-    \begin{center}
-        \includegraphics[width=0.5\textwidth]{assets/clients.png}
-    \end{center}
-\end{block}
 
 
 \begin{block}{Extensions}
@@ -180,7 +191,7 @@
         \includegraphics[width=0.5\textwidth]{assets/rtp-rtcp.png}
     \end{center}
 
-    In a traditional RTP setup, data and QoS tranmssions are seperated into different transmissions on seperate ports
+    In a traditional RTP setup, data and QoS transmissions are separated into different transmissions on separate ports
 
     \begin{center}
         \includegraphics[width=0.5\textwidth]{assets/rtp-extension.png}
@@ -188,7 +199,56 @@
 
     With the extension header, it is possible to transmit both types of data in the header.
     This adds complexity to RTP in encoding and decoding, but has the benefit of reducing the overhead
-    when seperate protocols are used.
+    when separate protocols are used.
+
+    \bigskip
+
+    Jung and Seo have demonstrated it is possible to achieve synchronization of RTP streams without the need for the
+    separate RTCP protocol. Their results have shown a significant decrease in synchronization time compared to traditional
+    methods.
+
+    \bigskip
+
+    We highlight several RTCP functions that can be integrated with RTP, while still maintaining the adaptability
+    of the protocol to wide use cases as designed.
+
+    \bigskip
+
+    Primarily, we will store NTP, number of packet lost, and inter-arrival jitter from the RTCP packet header sender report,
+    which provides the necessary data to make QoE adjustments.
+
+    \bigskip
+    $\textbf{NTP (Network Time Protocol):}$
+    Used as a standard reference time for synchronization of RTP streams.
+
+    \bigskip
+    $\textbf{Number of Packets Lost:}$
+    Measures the number of RTP packets that had not been successfully delivered to the receiver. The sender
+    can use this number to estimate the packet loss percent, and make adjustments.
+
+    \bigskip
+    $\textbf{Interarrival Jitter:}$
+    Provides an estimate of the RTP packet data arrival time. True jitter will be calculated in our tests, but an estimate
+    can provide a gauge of network quality.
+
+    \bigbreak
+
+    The delay between packets, where $S$ is the timestamp of the packet, and $R$ is the received time, is:
+
+    \[
+        D(i, j) = (R_j - R_i) - (S_j - S_i)
+    \]
+
+    \bigbreak
+
+    Jitter of a packet is estimated as then:
+
+    \[
+        J(i) = J(i - 1) + (|D(i - 1, i)| - J(i - 1)) / 16
+    \]
+
+
+
 
 \end{block}
 

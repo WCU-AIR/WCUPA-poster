@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex template"] 1763619967.37016 "template.aux" "template.bbl" "template" 1763734532.49241 0
-  "./template.bib" 1762911256 753 e97bbcb0a345bb48523ab64b801e4c5f ""
+["bibtex template"] 1764457250.77003 "template.aux" "template.bbl" "template" 1764457251.86401 0
+  "./template.bib" 1764448804.93964 3112 21dff9585674f1cc96beb4677aa37206 ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "template.aux" 1763734532.29568 799 0b639619db8cfe5de20bf366cc5b6ed4 "pdflatex"
+  "template.aux" 1764457251.67549 1049 8da92a9d2ee13199b3b775507ff645bb "pdflatex"
   (generated)
   "template.bbl"
   "template.blg"
   (rewritten before read)
-["pdflatex"] 1763734531.42472 "/Users/sebastiantran/Documents/Research/UVT_Poster/template.tex" "template.pdf" "template" 1763734532.49251 0
-  "/Users/sebastiantran/Documents/Research/UVT_Poster/template.tex" 1763734531.18877 10248 018e96125b986855eb429fe161322468 ""
+["pdflatex"] 1764457250.83768 "/Users/sebastiantran/Documents/Research/UVT_Poster/template.tex" "template.pdf" "template" 1764457251.8641 0
+  "/Users/sebastiantran/Documents/Research/UVT_Poster/template.tex" 1764457249.60347 12161 8ea3334eb2845bcf0d5cdd4e293d6b98 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1136768653 4484 b828043cbd581d289d955903c1339981 ""
@@ -37,6 +37,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy5.tfm" 1136768653 1112 14d5d5f6bd3c949edecb5b872f295553 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb" 1248133631 24393 3b7eb51a67a0a62aec5849271bdb9c2e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb" 1248133631 24416 36515493f76659302880e2604105b074 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -257,18 +258,17 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "assets/Blank diagram.png" 1763705855.57923 17077 2c46e922ae86528e0b042243f2e47661 ""
-  "assets/clients.png" 1763653433.26147 55155 836a1439a5817c189c6138397ab392e2 ""
-  "assets/logo.jpg" 1762911256 643180 5b8d94a1f7094a1156c6dbba41140aa8 ""
+  "assets/West_Chester_University_logo.png" 1764401470.45186 79640 872b5e258a1c93827330b8f17034dfd7 ""
   "assets/rtp-extension.png" 1763653235.43054 45335 473ea32725e31fdb6eec70cd11a08c42 ""
   "assets/rtp-rtcp.png" 1763653235.43276 53142 b3396a387eb5eb702b62f9a381798ad9 ""
   "beamercolorthemeuvtposter.sty" 1762911256 1764 71552d65d34fa0b12c4855476cd84e44 ""
-  "beamerthemeuvtposter.sty" 1763706498.79875 10320 52df7479a380f06b6a24021efe536c92 ""
-  "template.aux" 1763734532.29568 799 0b639619db8cfe5de20bf366cc5b6ed4 "pdflatex"
-  "template.bbl" 1763619967.43753 404 f1e1edfd2a3ae255c37b5d24bf184ba9 "bibtex template"
-  "template.nav" 1763734532.29611 307 9e520c26371a1250ff9fc1fe87f9c655 "pdflatex"
-  "template.out" 1763734531.97513 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "template.tex" 1763734531.18877 10248 018e96125b986855eb429fe161322468 ""
-  "template.vrb" 1763734532.02217 8658 294338b3d21bb64f3f036b49535e009b "pdflatex"
+  "beamerthemeuvtposter.sty" 1764443419.69625 10509 ba3ea9583f98cc1e479b10564363eec8 ""
+  "template.aux" 1764457251.67549 1049 8da92a9d2ee13199b3b775507ff645bb "pdflatex"
+  "template.bbl" 1764457250.83519 1106 25b3e76ff50ca8d658be19f141d0064e "bibtex template"
+  "template.nav" 1764457251.67595 307 9e520c26371a1250ff9fc1fe87f9c655 "pdflatex"
+  "template.out" 1764457251.33342 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "template.tex" 1764457249.60347 12161 8ea3334eb2845bcf0d5cdd4e293d6b98 ""
+  "template.vrb" 1764457251.37663 10585 070fa077638c930723aa516bdb922152 "pdflatex"
   (generated)
   "template.aux"
   "template.log"

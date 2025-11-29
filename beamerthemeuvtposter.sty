@@ -89,7 +89,7 @@
     {\usebeamerfont{heading}\usebeamercolor[fg]{heading}#1}%
     \par\smallskip}
 
-\ProvideDocumentCommand \separatorcolumn {} {\begin{column}{0.025\paperwidth}\end{column}}
+\ProvideDocumentCommand \separatorcolumn {} {\begin{column}{0.01\paperwidth}\end{column}}
 
 \NewDocumentCommand \headerlogoleft  { m } {\def\@headerlogoleft{#1}}
 \NewDocumentCommand \headerlogoright  { m } {\def\@headerlogoright{#1}}
@@ -98,7 +98,7 @@
 
 % <<< assets
 
-\headerlogoright{\includegraphics[width=0.04\paperwidth]{assets/logo.jpg}}
+\headerlogoright{\includegraphics[width=0.09\paperwidth]{assets/West_Chester_University_logo.png}}
 
 \headerlogoleft{\includegraphics[width=0.08\paperwidth]{assets/wcuSeal.png}}
 
@@ -188,7 +188,7 @@
     \end{column}
     \begin{column}{\dimexpr\paperwidth-\maxlogowidth-\maxlogowidth}
         \usebeamerfont{headline}
-        \vskip 3ex
+        \vskip 3em
         \centering
         {
             \usebeamerfont{headline title}
@@ -202,6 +202,13 @@
             \usebeamercolor[fg]{headline author}
             \insertauthor
         }
+        \vspace{2em}
+
+        {
+            \usebeamerfont{headline institute}
+            \usebeamercolor[fg]{headline author}
+            Advisors: Dr. Amiruzzaman \& Dr. Ngo
+        }
         \vspace{1em}
 
         {
@@ -209,7 +216,6 @@
             \usebeamercolor[fg]{headline institute}
             \insertinstitute
         }
-        \vspace{1em}
     \end{column}
     \begin{column}{\maxlogowidth}
         \@ifundefined{@headerlogoright}{}{

@@ -1,13 +1,27 @@
 \begin{thebibliography}{1}
 
-\bibitem{Diffie1976}
-W.~Diffie and M.~Hellman.
-\newblock New directions in cryptography.
-\newblock {\em {IEEE} Transactions on Information Theory}, 22:644--654, 1976.
+\bibitem{angrisani2013internet}
+Leopoldo Angrisani, Domenico Capriglione, Luigi Ferrigno, and Gianfranco Miele.
+\newblock Internet protocol packet delay variation measurements in communication networks: How to evaluate measurement uncertainty?
+\newblock {\em Measurement}, 46(7):2099--2109, 2013.
 
-\bibitem{Jackson1936}
-D.~Jackson.
-\newblock {Bernstein's} theorem and trigonometric approximation.
-\newblock {\em Transactions of the American Mathematical Society}, 40:225--225, 1936.
+\bibitem{chadda2004quality}
+Ankur Chadda.
+\newblock {\em Quality of service testing methodology}.
+\newblock PhD thesis, University of New Hampshire (Department of Computer Science), 2004.
+
+\bibitem{jung2016client}
+Tae-jun Jung and Kwang-deok Seo.
+\newblock A client-driven media synchronization mechanism for rtp packet-based video streaming.
+\newblock {\em Journal of Real-Time Image Processing}, 12(2):455--464, 2016.
+
+\bibitem{10.5555/1408599}
+Colin Perkins.
+\newblock {\em Rtp: audio and video for the internet}.
+\newblock Addison-Wesley Professional, first edition, 2003.
+
+\bibitem{schulzrinne2003rfc3550}
+Henning Schulzrinne, Steven Casner, R~Frederick, and Van Jacobson.
+\newblock Rfc3550: Rtp: A transport protocol for real-time applications, 2003.
 
 \end{thebibliography}
